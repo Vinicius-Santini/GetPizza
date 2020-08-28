@@ -6,7 +6,7 @@ import Col from "react-bootstrap/Col";
 const ToastPontos = ({ pontos, recomendacaoAceita, hideToast }) => {
   return (
     <>
-      <Row className="">
+      <Row className="fixed-top position-absolute center">
         <Col xs={6}>
           <Toast
             onClose={hideToast}
