@@ -9,7 +9,7 @@ const PizzaForm = ({ lista, passo, handleChange }) => {
           <h4 className="titles">Selecione o/a {passo}:</h4>
         </Form.Label>
         <Form.Control
-          className="optionInput"
+          className="font-weight-bold"
           onChange={handleChange(passo)}
           as="select"
         >

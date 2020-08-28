@@ -8,7 +8,7 @@ export default function Header() {
       <Navbar bg="danger" className="justify-content-center">
         <Navbar.Brand className="d-flex">
           <img src={logo} width="50" height="50" />
-          <h1 className="font-weight-bold navBarTitle">GetPizza</h1>
+          <h1 className="font-weight-bold brandTitle">GetPizza</h1>
         </Navbar.Brand>
       </Navbar>
     </>

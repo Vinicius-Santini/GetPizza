@@ -24,7 +24,7 @@ const Finalizar = ({ nextStep, prevStep, values }) => {
             <Form.Control
               value={values.massa}
               readOnly
-              className="optionInput"
+              className="font-weight-bold"
             />
           </Form.Group>
           <Form.Group>
@@ -32,7 +32,7 @@ const Finalizar = ({ nextStep, prevStep, values }) => {
             <Form.Control
               value={values.recheio}
               readOnly
-              className="optionInput"
+              className="font-weight-bold"
             />
           </Form.Group>
           <Form.Group>
@@ -40,7 +40,7 @@ const Finalizar = ({ nextStep, prevStep, values }) => {
             <Form.Control
               value={values.tamanho}
               readOnly
-              className="optionInput"
+              className="font-weight-bold"
             />
           </Form.Group>
         </Form>

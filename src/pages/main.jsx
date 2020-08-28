@@ -36,7 +36,17 @@ export class Main extends Component {
   restartStep = () => {
     const { step } = this.state;
     this.setState({
-      step: step - step + 1,
+      step: 1,
+    });
+  };
+
+  lastStep = () => {
+    const { step, massa, recheio, tamanho } = this.state;
+    this.setState({
+      step: 4,
+      massa: "Pan",
+      recheio: "Frango",
+      tamanho: "Médio",
     });
   };
 
@@ -90,6 +100,7 @@ export class Main extends Component {
           <Massa
             listaMassas={listaMassas}
             nextStep={this.nextStep}
+            lastStep={this.lastStep}
             handleChange={this.handleChange}
             values={values}
           />

@@ -11,7 +11,7 @@ body {
   font-family: "Oswald", sans-serif !important;
 }
 
-.navBarTitle {
+.brandTitle {
   color: #ffeed4;
 }
 
@@ -42,10 +42,6 @@ body {
   margin-right: 15px;
 }
 
-.optionInput {
-  font-weight: bold;
-}
-
 .finalizarTitle {
   padding-top: 15px;
   font-weight: bold;
@@ -68,4 +64,10 @@ body {
 .feedbackText {
   font-size: 18px;
   color: rgb(71, 71, 71);
+  text-justify: auto;
+}
+
+.pizzaDayText {
+  font-weight: bold;
+  color: rgb(78, 78, 78);
 }
