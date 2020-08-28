@@ -15,7 +15,9 @@
  
  ## O que utilizei: 
  
- - React, React-bootstrap
+ - React
+ 
+ - React-Bootstrap
  
  ## Tempo de desenvoolvimento: 
  
