@@ -1,38 +1,58 @@
-.App {
-  text-align: center;
+.container {
+  margin-top: 30px;
+  background-color: white;
+  border: 2px solid #d9534f;
+  border-radius: 5px;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+body {
+  background-color: white;
+  font-family: "Oswald", sans-serif !important;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+.navBarTitle {
+  color: #ffeed4;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+.selectLabel {
+  padding-top: 10px;
+  font-weight: bold;
+  color: #c23833;
+}
+
+.massaStepsRow {
   display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+  flex-flow: row-reverse;
+  margin-right: 1px;
+  margin-bottom: 9px;
 }
 
-.App-link {
-  color: #61dafb;
+.stepsRow {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 9px;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.voltarButton {
+  margin-left: 15px;
+}
+
+.proximoButton {
+  margin-right: 15px;
+}
+
+.optionInput {
+  font-weight: bold;
+}
+
+.finalizarTitle {
+  padding-top: 15px;
+  font-weight: bold;
+  color: #c23833;
+}
+
+.mainTitle {
+  padding-top: 15px;
+  font-weight: bold;
+  color: #c23833;
 }
