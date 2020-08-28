@@ -6,7 +6,7 @@ const PizzaForm = ({ lista, passo, handleChange }) => {
     <>
       <Form.Group>
         <Form.Label>
-          <h4 className="selectLabel">Selecione o/a {passo}:</h4>
+          <h4 className="titles">Selecione o/a {passo}:</h4>
         </Form.Label>
         <Form.Control
           className="optionInput"

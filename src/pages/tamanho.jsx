@@ -26,7 +26,7 @@ const Tamanho = ({
 
   return (
     <>
-      <Container>
+      <Container className="orderContainer">
         <Row>
           <Col>
             <PizzaForm

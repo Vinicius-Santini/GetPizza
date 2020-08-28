@@ -4,6 +4,7 @@ import Massa from "./massa.jsx";
 import Recheio from "./recheio.jsx";
 import Tamanho from "./tamanho.jsx";
 import Finalizar from "./finalizar.jsx";
+import Success from "./success";
 
 export class Main extends Component {
   state = {
@@ -29,6 +30,13 @@ export class Main extends Component {
     const { step } = this.state;
     this.setState({
       step: step - 1,
+    });
+  };
+
+  restartStep = () => {
+    const { step } = this.state;
+    this.setState({
+      step: step - step + 1,
     });
   };
 
@@ -116,6 +124,8 @@ export class Main extends Component {
             values={values}
           />
         );
+      case 5:
+        return <Success restartStep={this.restartStep} />;
     }
   }
 }

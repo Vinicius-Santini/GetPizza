@@ -17,9 +17,9 @@ const Massa = ({ listaMassas, nextStep, handleChange, values }) => {
 
   return (
     <>
-      <Container>
+      <Container className="orderContainer">
         <Row className="d-flex justify-content-center">
-          <h2 className="mainTitle">Monte a sua pizza</h2>
+          <h2 className="titles">Monte a sua pizza</h2>
         </Row>
         <Row>
           <Col>
@@ -30,12 +30,16 @@ const Massa = ({ listaMassas, nextStep, handleChange, values }) => {
             />
           </Col>
         </Row>
-        <Row className="massaStepsRow">
+        <Row className="firstStepRow">
           <Button variant="info" onClick={continuar}>
             Próximo
           </Button>
         </Row>
       </Container>
+      <div className="d-flex justify-content-center">
+        <h2 className="titles">Você também pode:</h2>
+      </div>
+      <Container className="orderContainer"></Container>
     </>
   );
 };

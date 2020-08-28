@@ -16,10 +16,10 @@ const Finalizar = ({ nextStep, prevStep, values }) => {
   };
   return (
     <>
-      <Container className="containerFinalizar">
+      <Container className="orderContainer">
         <Form>
           <Form.Group>
-            <h3 className="finalizarTitle">Confira seu pedido!</h3>
+            <h3 className="titles">Confira seu pedido!</h3>
             <Form.Label className="selectLabel">Massa:</Form.Label>
             <Form.Control
               value={values.massa}

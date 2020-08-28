@@ -26,7 +26,7 @@ const Recheio = ({
 
   return (
     <>
-      <Container>
+      <Container className="orderContainer">
         <Row>
           <Col>
             <PizzaForm

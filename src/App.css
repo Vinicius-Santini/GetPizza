@@ -1,8 +1,9 @@
-.container {
+.orderContainer {
   margin-top: 30px;
   background-color: white;
   border: 2px solid #d9534f;
-  border-radius: 5px;
+  border-radius: 15px;
+  max-width: 1000px;
 }
 
 body {
@@ -20,7 +21,7 @@ body {
   color: #c23833;
 }
 
-.massaStepsRow {
+.firstStepRow {
   display: flex;
   flex-flow: row-reverse;
   margin-right: 1px;
@@ -51,8 +52,20 @@ body {
   color: #c23833;
 }
 
-.mainTitle {
+.titles {
   padding-top: 15px;
   font-weight: bold;
   color: #c23833;
+}
+
+.successCard {
+  margin-top: 30px;
+  border: 2px solid #d9534f;
+  border-radius: 15px;
+  min-width: 30%;
+}
+
+.feedbackText {
+  font-size: 18px;
+  color: rgb(71, 71, 71);
 }
