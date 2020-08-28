@@ -1,10 +1,12 @@
 import React, { Component } from "react";
-import ApiService from "../utils/ApiService";
-import Massa from "./massa.jsx";
-import Recheio from "./recheio.jsx";
-import Tamanho from "./tamanho.jsx";
-import Finalizar from "./finalizar.jsx";
-import Success from "./success";
+import ApiService from "../utils/apiservice";
+import Massa from "../components/massa/massa.jsx";
+import Recheio from "../components/recheio/recheio.jsx";
+import Tamanho from "../components/tamanho/tamanho.jsx";
+import Finalizar from "../components/finalizar/finalizar.jsx";
+import Success from "../components/success/success.jsx";
+import PizzaRecomendada from "../components/pizza-recomendada/pizzarecomendada.jsx";
+import ToastPontos from "../components/toastpontos/toastpontos.jsx";
 
 export class Main extends Component {
   state = {
@@ -12,25 +14,45 @@ export class Main extends Component {
     massa: null,
     recheio: null,
     tamanho: null,
+    pontos: null,
+    recomendacaoAceita: false,
     pizzaRecomendada: null,
-    pizzas: [],
     listaMassas: [],
     listaRecheios: [],
     listaTamanhos: [],
   };
 
+  componentDidMount() {
+    this.getMassas();
+    this.getRecomendada();
+  }
+
   nextStep = () => {
     const { step } = this.state;
+    const nextStep = step + 1;
     this.setState({
-      step: step + 1,
+      step: nextStep,
     });
+    switch (nextStep) {
+      case 2:
+        return this.getRecheios();
+      case 3:
+        return this.getTamanhos();
+    }
   };
 
   prevStep = () => {
     const { step } = this.state;
+    const prevStep = step - 1;
     this.setState({
       step: step - 1,
     });
+    switch (prevStep) {
+      case 2:
+        return this.getRecheios();
+      case 3:
+        return this.getTamanhos();
+    }
   };
 
   restartStep = () => {
@@ -41,12 +63,20 @@ export class Main extends Component {
   };
 
   lastStep = () => {
-    const { step, massa, recheio, tamanho } = this.state;
+    const { pizzaRecomendada } = this.state;
+    this.getPontos();
     this.setState({
       step: 4,
-      massa: "Pan",
-      recheio: "Frango",
-      tamanho: "Médio",
+      massa: pizzaRecomendada.massa,
+      recheio: pizzaRecomendada.recheio,
+      tamanho: pizzaRecomendada.tamanho,
+      recomendacaoAceita: true,
+    });
+  };
+
+  hideToast = () => {
+    this.setState({
+      recomendacaoAceita: false,
     });
   };
 
@@ -55,7 +85,10 @@ export class Main extends Component {
       const massas = res.massa.map((massa) => {
         return massa.nome;
       });
-      this.setState({ listaMassas: massas, massa: massas[0] });
+      this.setState({
+        listaMassas: massas,
+        massa: this.state.massa || massas[0],
+      });
     });
   }
 
@@ -65,7 +98,10 @@ export class Main extends Component {
         return recheio.nome;
       });
 
-      this.setState({ listaRecheios: recheios, recheio: recheios[0] });
+      this.setState({
+        listaRecheios: recheios,
+        recheio: this.state.recheio || recheios[0],
+      });
     });
   }
 
@@ -74,13 +110,24 @@ export class Main extends Component {
       const tamanhos = res.tamanho.map((tamanho) => {
         return tamanho.nome;
       });
-      this.setState({ listaTamanhos: tamanhos, tamanho: tamanhos[0] });
+      this.setState({
+        listaTamanhos: tamanhos,
+        tamanho: this.state.tamanho || tamanhos[0],
+      });
     });
   }
 
   getPontos() {
     ApiService.GetPontos().then((res) => {
-      const pontos = res;
+      const pontos = res.pontos;
+      this.setState({ pontos });
+    });
+  }
+
+  getRecomendada() {
+    ApiService.GetRecomendada().then((res) => {
+      const recomendada = res;
+      this.setState({ pizzaRecomendada: recomendada });
     });
   }
 
@@ -89,26 +136,42 @@ export class Main extends Component {
   };
 
   render() {
-    const { step, listaMassas, listaRecheios, listaTamanhos } = this.state;
+    const {
+      step,
+      listaMassas,
+      listaRecheios,
+      listaTamanhos,
+      pizzaRecomendada,
+      recomendacaoAceita,
+      pontos,
+    } = this.state;
     const { massa, recheio, tamanho } = this.state;
     const values = { massa, recheio, tamanho };
 
     switch (step) {
       case 1:
-        this.getMassas();
         return (
-          <Massa
-            listaMassas={listaMassas}
-            nextStep={this.nextStep}
-            lastStep={this.lastStep}
-            handleChange={this.handleChange}
-            values={values}
-          />
+          <>
+            <Massa
+              selected={massa}
+              listaMassas={listaMassas}
+              nextStep={this.nextStep}
+              handleChange={this.handleChange}
+              values={values}
+            />
+            <div className="d-flex justify-content-center mt-4">
+              <h3 className="titles">Ou você pode...</h3>
+            </div>
+            <PizzaRecomendada
+              pizzaRecomendada={pizzaRecomendada}
+              lastStep={this.lastStep}
+            />
+          </>
         );
       case 2:
-        this.getRecheios();
         return (
           <Recheio
+            selected={recheio}
             listaRecheios={listaRecheios}
             nextStep={this.nextStep}
             prevStep={this.prevStep}
@@ -117,9 +180,9 @@ export class Main extends Component {
           />
         );
       case 3:
-        this.getTamanhos();
         return (
           <Tamanho
+            selected={tamanho}
             listaTamanhos={listaTamanhos}
             nextStep={this.nextStep}
             prevStep={this.prevStep}
@@ -129,11 +192,18 @@ export class Main extends Component {
         );
       case 4:
         return (
-          <Finalizar
-            nextStep={this.nextStep}
-            prevStep={this.prevStep}
-            values={values}
-          />
+          <>
+            <Finalizar
+              nextStep={this.nextStep}
+              prevStep={this.prevStep}
+              values={values}
+            />
+            <ToastPontos
+              hideToast={this.hideToast}
+              recomendacaoAceita={recomendacaoAceita}
+              pontos={pontos}
+            />
+          </>
         );
       case 5:
         return <Success restartStep={this.restartStep} />;

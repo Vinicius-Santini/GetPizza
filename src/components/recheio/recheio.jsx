@@ -4,10 +4,11 @@ import Button from "react-bootstrap/Button";
 import Container from "react-bootstrap/Container";
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
-import PizzaForm from "../components/form/PizzaForm.jsx";
+import PizzaForm from "../pizza-form/pizzaform.jsx";
 
-const Tamanho = ({
-  listaTamanhos,
+const Recheio = ({
+  selected,
+  listaRecheios,
   nextStep,
   prevStep,
   handleChange,
@@ -22,7 +23,7 @@ const Tamanho = ({
     prevStep();
   };
 
-  const passo = "tamanho";
+  const passo = "recheio";
 
   return (
     <>
@@ -30,7 +31,8 @@ const Tamanho = ({
         <Row>
           <Col>
             <PizzaForm
-              lista={listaTamanhos}
+              selected={selected}
+              lista={listaRecheios}
               handleChange={handleChange}
               passo={passo}
             />
@@ -49,4 +51,4 @@ const Tamanho = ({
   );
 };
 
-export default Tamanho;
+export default Recheio;

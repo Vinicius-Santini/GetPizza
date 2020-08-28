@@ -2,16 +2,9 @@ import React, { Component } from "react";
 import Button from "react-bootstrap/Button";
 import Container from "react-bootstrap/Container";
 import Row from "react-bootstrap/Row";
-import Col from "react-bootstrap/Col";
-import PizzaForm from "../components/form/PizzaForm.jsx";
 
-const Massa = ({ listaMassas, nextStep, lastStep, handleChange, values }) => {
-  const continuar = (e) => {
-    e.preventDefault();
-    nextStep();
-  };
-
-  const final = (e) => {
+const PizzaRecomendada = ({ lastStep, pizzaRecomendada }) => {
+  const reachFinalizar = (e) => {
     e.preventDefault();
     lastStep();
   };
@@ -20,28 +13,6 @@ const Massa = ({ listaMassas, nextStep, lastStep, handleChange, values }) => {
 
   return (
     <>
-      <Container className="orderContainer">
-        <Row className="d-flex justify-content-center">
-          <h2 className="titles">Monte a sua pizza</h2>
-        </Row>
-        <Row>
-          <Col>
-            <PizzaForm
-              lista={listaMassas}
-              handleChange={handleChange}
-              passo={passo}
-            />
-          </Col>
-        </Row>
-        <Row className="firstStepRow">
-          <Button variant="info" onClick={continuar}>
-            Próximo
-          </Button>
-        </Row>
-      </Container>
-      <div className="d-flex justify-content-center mt-4">
-        <h3 className="titles">Ou você pode...</h3>
-      </div>
       <Container className="orderContainer d-flex flex-column">
         <Row className="justify-content-center">
           <h2 className="titles">Pedir a pizza do dia</h2>
@@ -58,10 +29,12 @@ const Massa = ({ listaMassas, nextStep, lastStep, handleChange, values }) => {
           </p>
         </Row>
         <Row className="justify-content-center mt-1 ">
-          <h5 className="selectLabel">A pizza do dia é: Frango</h5>
+          <h5 className="selectLabel">
+            A pizza do dia é: {pizzaRecomendada?.recheio}
+          </h5>
         </Row>
         <Row className="justify-content-center mt-3 mb-2">
-          <Button variant="warning" onClick={final}>
+          <Button variant="info" onClick={reachFinalizar}>
             Pedir
           </Button>
         </Row>
@@ -70,4 +43,4 @@ const Massa = ({ listaMassas, nextStep, lastStep, handleChange, values }) => {
   );
 };
 
-export default Massa;
+export default PizzaRecomendada;

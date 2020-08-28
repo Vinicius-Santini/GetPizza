@@ -23,6 +23,12 @@ const ApiService = {
       .then((res) => res.json());
   },
 
+  GetRecomendada: () => {
+    return fetch(`https://run.mocky.io/v3/3604b124-d3c1-4bf5-809b-73b162dad47c`)
+      .then((res) => ApiService.ErrorHandler(res))
+      .then((res) => res.json());
+  },
+
   ErrorHandler: (res) => {
     if (!res.ok) {
       throw Error(res.responseText);

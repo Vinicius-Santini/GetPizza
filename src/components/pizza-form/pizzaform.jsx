@@ -1,7 +1,7 @@
 import React from "react";
 import Form from "react-bootstrap/Form";
 
-const PizzaForm = ({ lista, passo, handleChange }) => {
+const PizzaForm = ({ selected, lista, passo, handleChange }) => {
   return (
     <>
       <Form.Group>
@@ -12,6 +12,7 @@ const PizzaForm = ({ lista, passo, handleChange }) => {
           className="font-weight-bold"
           onChange={handleChange(passo)}
           as="select"
+          value={selected}
         >
           {lista.map((opcao) => (
             <option>{opcao}</option>
