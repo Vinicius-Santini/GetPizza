@@ -13,9 +13,9 @@
  Em ambos os casos o usuário também passará por uma tela de finalização para que ele possa ver massa, recheio e tamanho da pizza escolhida, e após isso por uma tela dedicada
  apenas a notificá-lo que finalizou o processo com sucesso.
  
- O que utilizei: React, React-bootstrap
+ -O que utilizei: React, React-bootstrap
  
- Tempo de desenvoolvimento: 2 dias
+ -Tempo de desenvoolvimento: 2 dias
 
 
 ## Contato:
