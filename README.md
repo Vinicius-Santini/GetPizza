@@ -8,7 +8,7 @@
  
  ## Descrição:
  
- **Esta aplicação está disponível clicando [aqui](http://vinicius-santini.github.io/GetPizza)
+ **Esta aplicação está disponível clicando [aqui](http://vinicius-santini.github.io/GetPizza)**
  
  O objetivo desse projeto é criar um formulário em vários passos para montar uma pizza. O usuário poderá montar sua própria pizza, selecionando sua massa, recheio e tamanho, 
  ou poderá optar por uma pizza do dia com ingredientes já estabelecidos, optando pela pizza recomendada o usuário será notificado de um ganho de pontuação no estabelecimento.
@@ -21,7 +21,7 @@
  
  - React-Bootstrap
  
- ## Tempo de desenvoolvimento: 
+ ## Tempo de desenvolvimento: 
  
  2 dias
 
