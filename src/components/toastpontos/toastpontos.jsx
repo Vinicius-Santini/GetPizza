@@ -6,12 +6,12 @@ import Col from "react-bootstrap/Col";
 const ToastPontos = ({ pontos, recomendacaoAceita, hideToast }) => {
   return (
     <>
-      <Row className="fixed-top position-absolute center">
+      <Row className="fixed-top position-absolute mt-5 ml-2">
         <Col xs={6}>
           <Toast
             onClose={hideToast}
             show={recomendacaoAceita}
-            delay={2500}
+            delay={4500}
             autohide
           >
             <Toast.Header>
