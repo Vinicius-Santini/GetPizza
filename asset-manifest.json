@@ -1,0 +1,26 @@
+{
+  "files": {
+    "main.css": "/GetPizza/static/css/main.0af72bf6.chunk.css",
+    "main.js": "/GetPizza/static/js/main.f45b71dd.chunk.js",
+    "main.js.map": "/GetPizza/static/js/main.f45b71dd.chunk.js.map",
+    "runtime-main.js": "/GetPizza/static/js/runtime-main.7d757276.js",
+    "runtime-main.js.map": "/GetPizza/static/js/runtime-main.7d757276.js.map",
+    "static/css/2.11829350.chunk.css": "/GetPizza/static/css/2.11829350.chunk.css",
+    "static/js/2.bfbb7062.chunk.js": "/GetPizza/static/js/2.bfbb7062.chunk.js",
+    "static/js/2.bfbb7062.chunk.js.map": "/GetPizza/static/js/2.bfbb7062.chunk.js.map",
+    "index.html": "/GetPizza/index.html",
+    "precache-manifest.605fe9a72b1b2624381929542a5a8193.js": "/GetPizza/precache-manifest.605fe9a72b1b2624381929542a5a8193.js",
+    "service-worker.js": "/GetPizza/service-worker.js",
+    "static/css/2.11829350.chunk.css.map": "/GetPizza/static/css/2.11829350.chunk.css.map",
+    "static/css/main.0af72bf6.chunk.css.map": "/GetPizza/static/css/main.0af72bf6.chunk.css.map",
+    "static/js/2.bfbb7062.chunk.js.LICENSE.txt": "/GetPizza/static/js/2.bfbb7062.chunk.js.LICENSE.txt",
+    "static/media/pizza-logo.svg": "/GetPizza/static/media/pizza-logo.c5022d44.svg"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.7d757276.js",
+    "static/css/2.11829350.chunk.css",
+    "static/js/2.bfbb7062.chunk.js",
+    "static/css/main.0af72bf6.chunk.css",
+    "static/js/main.f45b71dd.chunk.js"
+  ]
+}
